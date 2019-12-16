@@ -1,4 +1,4 @@
-module.exports = {
+module.export = {
   allowances_state: 
 `
     , allowances : allowances
