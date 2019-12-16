@@ -1,0 +1,16 @@
+{
+  "name": "aeternity-tokens",
+  "version": "1.0.0",
+  "description": "AEternity tokens",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aeternity",
+    "tokens",
+    "fungible-tokens"
+  ],
+  "author": "Milen Radkov <milenradkov@me.com>",
+  "license": "ISC"
+}
