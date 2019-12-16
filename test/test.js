@@ -7,9 +7,9 @@ describe('Should import default token contract', () => {
     expect(result).to.be.a('string')
   });
 
-  it('should get allowances', () => {
-    var result = index.getAllowancesExtension();
+  it('should create allowances token', () => {
+    var result = index.createAllowancesToken();
     console.log(result)
-    expect(result.name).to.be.a('string')
+    expect(result).to.be.a('string')
   })
 });
