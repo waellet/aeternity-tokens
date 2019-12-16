@@ -1,9 +1,9 @@
 module.export = {
-  allowances_state: 
+  state: 
 `
     , allowances : allowances
 `,
-  allowances_types:
+  types:
 `
 // This is the format of allowance record type that will be used in the state
 record allowance_accounts = { from_account : address, for_account : address }
@@ -11,15 +11,15 @@ record allowance_accounts = { from_account : address, for_account : address }
 // This is a type alias for the allowances map
 type allowances = map(allowance_accounts, int)
 `,
-  allowances_events:
+  events:
 `
 | Allowance(address, address, int)
 `,
-  allowances_init:
+  init:
 `
     , allowances = {}
 `,
-  allowances_methods:
+  methods:
 `
 // Get the allowances state
 entrypoint allowances() : allowances =
