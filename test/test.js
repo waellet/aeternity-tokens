@@ -7,6 +7,11 @@ describe('Should import default token contract', () => {
     expect(result).to.be.a('string')
   });
 
+  it('should create basic token', () => {
+    var result = index.newToken([]);
+    expect(result).to.be.a('string')
+  });
+
   it('should create allowances token', () => {
     var result = index.newToken(['allowances']);
     expect(result).to.be.a('string')

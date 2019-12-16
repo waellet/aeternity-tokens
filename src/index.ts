@@ -21,8 +21,9 @@ export function newToken(extensionsList : Array<string> = []) : string {
     token = addExtension(token, extensions[extension]);
   })
 
-  // THIS IS A MUST
-  token = updateExtensionsList(token, extensionsList);
+  if (extensionsList.length >= 1) {
+    token = updateExtensionsList(token, extensionsList);
+  }
 
   return token;
 }
