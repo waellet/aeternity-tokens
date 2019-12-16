@@ -1,4 +1,5 @@
 module.export = {
+  name: `allowances`,
   state: 
 `
     , allowances : allowances
