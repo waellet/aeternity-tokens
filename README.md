@@ -15,7 +15,7 @@ npm run test
 ## Installation
 
 ```sh
-npm install @waellet/aeternity-tokens
+npm install aeternity-tokens
 ```
 
 ## Usage
@@ -23,12 +23,12 @@ npm install @waellet/aeternity-tokens
 ### Javascript
 
 ```javascript
-const aeternityTokens = require('@waellet/aeternity-tokens');
+const aeternityTokens = require('aeternity-tokens');
 var newToken = aeternityTokens.newToken([]);
 ```
 
 ### TypeScript
 ```typescript
-import * as aeternityTokens from '@waellet/aeternity-tokens';
+import * as aeternityTokens from 'aeternity-tokens';
 console.log(aeternityTokens.newToken([]))
 ```
