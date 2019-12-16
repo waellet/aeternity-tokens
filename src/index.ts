@@ -17,20 +17,21 @@ export function getBasicTokenContract() : string {
 
 export function newToken(extensionsList : Array<string> = []) : string {
   let token = getBasicTokenContract();
-  
+  let multiple = false;
   extensionsList.forEach((extension) => {
-    token = addExtension(token, extensions[extension]);
+    token = addExtension(token, extensions[extension], multiple);
+    multiple = extensionsList.length > 1;
   })
 
   return token;
 }
 
-export function addExtension(token : string, extension : any) : string {
+export function addExtension(token : string, extension : any, multiple: boolean = false) : string {
   let memory_token = token;
   memory_token = updateState(memory_token, extension.state)
   memory_token = updateTypes(memory_token, extension.types)
   memory_token = updateEvents(memory_token, extension.events)
-  memory_token = updateExtensionsList(memory_token, extension.name)
+  memory_token = updateExtensionsList(memory_token, extension.name, multiple)
   memory_token = updateInit(memory_token, extension.init)
   memory_token = updateMethods(memory_token, extension.methods)
   return memory_token;
@@ -57,9 +58,13 @@ export function updateEvents(token : string, events : string) : string {
   return token;
 }
 
-export function updateExtensionsList(token : string, name : string) : string {
+export function updateExtensionsList(token : string, name : string, multiple : boolean) : string {
   if (name.length > 1) {
-    return token.replace("// [extension_name]",   ` // [extension_name]  ` + '\n' + `    "${name}"`);
+    if (!multiple) {
+      return token.replace("// [extension_name]",   ` // [extension_name]  ` + '\n' + `    , "${name}"`);
+    } else {
+      return token.replace("// [extension_name]",   ` // [extension_name]  ` + '\n' + `    "${name}"`);
+    }
   }
   return token;
 }

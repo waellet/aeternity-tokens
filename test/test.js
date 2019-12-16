@@ -23,9 +23,9 @@ describe('Should import default token contract', () => {
   })
 
   it('should create swappable token', () => {
-    var result = index.newToken(['swappable']);
+    var result = index.newToken(['burnable', 'swappable']);
     console.log(result)
     expect(result).to.be.a('string')
   })
-  
+
 });
