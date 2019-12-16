@@ -27,7 +27,7 @@ export function newToken(extensionsList : Array<string> = []) : string {
   return token;
 }
 
-export function addExtension(token : string, extension : any, multiple: boolean = false) : string {
+function addExtension(token : string, extension : any, multiple: boolean = false) : string {
   let memory_token = token;
   memory_token = updateState(memory_token, extension.state)
   memory_token = updateTypes(memory_token, extension.types)
@@ -37,39 +37,39 @@ export function addExtension(token : string, extension : any, multiple: boolean 
   return memory_token;
 }
 
-export function updateState(token : string, state : string) : string {
+function updateState(token : string, state : string) : string {
   if (state.length > 1) {
     return token.replace("    // [extension_state]",   `    // [extension_state]  ` + '\n' + `    , ${state}`);
   }
   return token;
 }
 
-export function updateTypes(token : string, types : string) : string {
+function updateTypes(token : string, types : string) : string {
   if (types.length > 1) {
     return token.replace("// [extension_types]",   `// [extension_types]  ` + '\n' + `  ${types}`);
   }
   return token;
 }
 
-export function updateEvents(token : string, events : string) : string {
+function updateEvents(token : string, events : string) : string {
   if (events.length > 1) {
     return token.replace("    // [extension_events]",   `    // [extension_events]  ` + '\n' + `${events}`);
   }
   return token;
 }
 
-export function updateExtensionsList(token : string, extensionList : Array<string>) : string {
+function updateExtensionsList(token : string, extensionList : Array<string>) : string {
   return token.replace("// [extension_name]",   ` // [extension_name]  ` + '\n' + `    ${`"` + extensionList.join("\", \"") + `"`}`);
 }
 
-export function updateInit(token : string, init : string) : string {
+function updateInit(token : string, init : string) : string {
   if (init.length > 1) {
     return token.replace("    // [extension_init]",   `    // [extension_init]  ` + '\n' + `     , ${init}`);
   }
   return token;
 }
 
-export function updateMethods(token : string, methods : string) : string {
+function updateMethods(token : string, methods : string) : string {
   if (methods.length > 1) {
     return token.replace("// [extension_methods]",   `// [extension_methods]  ` + '\n' + `  ${methods}`);
   }
