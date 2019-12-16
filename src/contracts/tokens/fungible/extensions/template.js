@@ -1,5 +1,6 @@
 module.export =
 {
+    name    : ``,
     state   : ``,
     types   : ``,
     events  : ``,

@@ -31,7 +31,7 @@ contract FungibleToken =
     , total_supply : int          // total token supply
     , balances     : balances     // balances for each account
     , meta_info    : meta_info
-    // [extensions] allowances_state
+    // [extension_state]
     }  // token meta info (name, symbol, decimals)
 
   // This is the meta-information record type
@@ -43,16 +43,18 @@ contract FungibleToken =
   // This is a type alias for the balances map
   type balances = map(address, int)
 
-// [extensions] allowances_types
+// [extension_types]
 
   // Declaration and structure of datatype event
   // and events that will be emitted on changes
   datatype event =
     Transfer(address, address, int)
-    // [extension] allowances_events 
+    // [extension_events] 
 
   // List of implemented extensions for the deployed contract
-  entrypoint aex9_extensions() : list(string) = []
+  entrypoint aex9_extensions() : list(string) =
+   [ // [extension_name]
+    ]
 
   // Create a fungible token with
   // the following `name` `symbol` and `decimals`
@@ -73,7 +75,7 @@ contract FungibleToken =
       total_supply = initial_supply,
       balances     = Option.match({}, (balance) => { [owner] = balance }, initial_owner_balance),
       meta_info    = { name = name, symbol = symbol, decimals = decimals }
-      // [extensions] allowances_init
+      // [extension_init]
       }
 
   // Get the token meta info
@@ -104,7 +106,7 @@ contract FungibleToken =
   stateful entrypoint transfer(to_account: address, value: int) =
     internal_transfer(Call.caller, to_account, value)
 
-// [extensions] allowances_methods
+// [extension_methods]
 
   // INTERNAL FUNCTIONS
 
