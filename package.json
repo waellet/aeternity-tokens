@@ -2,9 +2,12 @@
   "name": "aeternity-tokens",
   "version": "1.0.0",
   "description": "AEternity tokens",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p .",
+    "start": "node dist/index.js",
+    "test": "mocha --reporter spec"
   },
   "keywords": [
     "aeternity",
@@ -12,5 +15,13 @@
     "fungible-tokens"
   ],
   "author": "Milen Radkov <milenradkov@me.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.18"
+  }
 }
