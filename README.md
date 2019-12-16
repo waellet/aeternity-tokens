@@ -1,6 +1,6 @@
 # aeternity-tokens
 
-This package providing an easy way to create extendable fungible tokens in Sophia by using a simple API.
+This package providing an easy way to create extendable [AEX-9 fungible tokens](https://github.com/mradkov/AEXs/blob/master/AEXS/aex-9.md) in Sophia by using a simple API.
 
 ## Build 
 ```sh
@@ -31,4 +31,25 @@ var newToken = aeternityTokens.newToken([]);
 ```typescript
 import * as aeternityTokens from 'aeternity-tokens';
 console.log(aeternityTokens.newToken([]))
+```
+
+Supported extensions
+- allowances
+- mintable
+- burnable
+- swappable
+
+Example use:
+
+```typescript
+import * as aeternityTokens from 'aeternity-tokens';
+
+const tokenAllowances = aeternityTokens.newToken(['allowances']);
+const tokenMintable = aeternityTokens.newToken(['mintable']);
+const tokenBurnable = aeternityTokens.newToken(['burnable']);
+const tokenSwappable = aeternityTokens.newToken(['burnable', 'swappable']);
+...
+const tokenMintableBurnable = aeternityTokens.newToken(['mintable', 'burnable']);
+...
+const tokenMintableBurnableAllowances = aeternityTokens.newToken(['mintable', 'burnable', 'allowances']);
 ```
