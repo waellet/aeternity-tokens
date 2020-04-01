@@ -1,5 +1,7 @@
 # aeternity-tokens
 
+<img src="https://badgen.net/bundlephobia/min/aeternity-tokens" />
+
 This package providing an easy way to create extendable [AEX-9 fungible tokens](https://github.com/mradkov/AEXs/blob/master/AEXS/aex-9.md) in Sophia by using a simple API.
 
 ## Build 
